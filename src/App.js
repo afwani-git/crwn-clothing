@@ -1,7 +1,8 @@
 import React from 'react';
 import {Homepage} from "./page/homepage/Homepage.component";
 import ShopPage from "./page/shop/Shop.component";
-import { Route,Switch } from "react-router-dom"
+import Header from "./component/header/Header.component"
+import { Route,Switch } from "react-router-dom";
 import './App.css';
 
 const Hats = (props) =>{
@@ -17,6 +18,7 @@ const Hats = (props) =>{
 function App() {
   return (
     <div className="App">
+    	<Header />
     	<Switch>
 	    	<Route exact path="/" component={Homepage} />
 	    	<Route  path="/shop/:id" component={Hats} />
