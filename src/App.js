@@ -1,12 +1,25 @@
 import React from 'react';
 import  {Homepage} from "./page/homepage/Homepage.component";
+import { Route,Switch } from "react-router-dom"
 import './App.css';
+
+const Hats = (props) =>{
+	console.log(props);
+	return(
+		<React.Fragment>
+			<h1>Fragment for {props.match.params.id}</h1>	
+		</React.Fragment>
+		)
+	}
 
 
 function App() {
   return (
     <div className="App">
-      <Homepage /> 
+    	<Switch>
+	    	<Route exact path="/" component={Homepage} />
+	    	<Route exact path="/shop/:id" component={Hats} />
+    	</Switch>
     </div>
   );
 }
