@@ -17,7 +17,7 @@ const Hats = (props) =>{
 		</React.Fragment>
 		)
 	}
-
+	
 class App extends React.Component{
 	
 	unSubcribeFromAuth = null;
@@ -41,7 +41,7 @@ class App extends React.Component{
 	componentWillUnmount(){
 		this.unSubcribeFromAuth()
 	}
-
+	
 	render(){
 		console.log(this.props);
 	  return (
