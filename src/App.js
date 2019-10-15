@@ -15,14 +15,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action.jsx';
 
-const Hats = (props) =>{
-	return(
-		<React.Fragment>
-			<h1>Fragment for {props.match.params.id}</h1>	
-		</React.Fragment>
-		)
-	}
-	
+
 class App extends React.Component{
 	
 	unSubcribeFromAuth = null;
@@ -54,7 +47,6 @@ class App extends React.Component{
 	    	<Switch>
 		    	<Route exact path="/" component={Homepage} />
 		    	<Route exact path="/checkout" component={Checkout} />
-		    	<Route  path="/shop/:id" component={Hats} />
 		    	<Route  path="/shop" component={ShopPage} />
 		    	<Route  path="/signin" render={() => this.props.user ? <Redirect to="/" /> : <SignInAndSignUp/>} />
 	    	</Switch>
