@@ -14,6 +14,10 @@ import './App.css';
 // redux
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.action.jsx';
+// selector
+import { createStructuredSelector } from 'reselect' 
+// import { selectCollectionPreview } from './redux/shop/shop.selector.jsx';
+import { selectCurrentUser } from './redux/user/user.selectors.jsx';
 
 
 class App extends React.Component{
@@ -33,6 +37,8 @@ class App extends React.Component{
 			}else{
 				this.props.setCurrentUser(userAuth);
 			}
+		// addCollectionAndItems('collection',
+		// this.props.collectionItems.map(({title,items}) => ({title,items})))
 		});
 	}
 
@@ -55,8 +61,9 @@ class App extends React.Component{
 	}
 }
 
-const mapStateToProps = ({ user }) => ({
-	user:user.currentUser	
+const mapStateToProps = createStructuredSelector({
+	user:selectCurrentUser,
+	// collectionItems:selectCollectionPreview
 })
 
 const mapsDispatchToProps = dispatch => ({
