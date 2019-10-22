@@ -9,10 +9,15 @@ export const selectShopCollection = createSelector(
 
 export const selectCollectionPreview = createSelector(
 	[selectShopCollection],
-	collection => Object.keys(collection).map(key => collection[key])
+	collection => collection ? Object.keys(collection).map(key => collection[key]) : []
 )
 
 export const selectCollectionCategory = paramsId => createSelector(
 	[selectShopCollection],
-	collection => collection[paramsId]//hash table
+	collection => (collection ?  collection[paramsId] : null)//hash table
 )
+
+export const selectShopCollectionFetching =  createSelector(
+	[selectShop],
+	shop => shop.isFetching
+) 
